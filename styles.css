@@ -659,22 +659,174 @@ h1 {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+/* ── Tablet (≤ 900px) ── */
 @media (max-width: 900px) {
-  .hero { flex-direction: column; padding: 5rem 2rem 3rem; text-align: center; }
+  /* Header */
+  .site-header { padding: 0 1.25rem; }
+  .site-header nav { display: none; }
+
+  /* Hero */
+  .hero {
+    flex-direction: column;
+    padding: 5rem 1.5rem 3rem;
+    text-align: center;
+    gap: 2rem;
+  }
   .hero-lede { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .hero-stage { flex: none; }
-  .section-band { padding: 4rem 2rem; }
-  .buy { grid-template-columns: 1fr; padding: 4rem 2rem; }
-  .site-footer { flex-direction: column; align-items: flex-start; padding: 2rem; }
-  .site-header nav { display: none; }
+
+  /* Sections */
+  .section-band { padding: 4rem 1.5rem; }
+
+  /* Buy */
+  .buy { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
+
+  /* Footer */
+  .site-footer { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; gap: 1rem; }
+
+  /* Gallery */
   .gallery-scene { width: 280px; }
+
+  /* Photos grid */
+  .photo-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .photo-card--large { grid-row: auto; }
+  .photo-card--large img { min-height: 280px; }
 }
 
+/* ── Mobile (≤ 600px) ── */
 @media (max-width: 600px) {
-  .form-grid { grid-template-columns: 1fr; }
-  .price-box { padding: 1.5rem; }
-  #runnerCanvas { height: 220px; }
+  /* Header */
+  .site-header {
+    padding: 0 1rem;
+    height: 56px;
+  }
+  .brand-text { font-size: 1.15rem; }
+  .header-cta { padding: .38rem .85rem; font-size: .72rem; }
+
+  /* Hero */
+  .hero {
+    padding: 4.5rem 1rem 2.5rem;
+    min-height: 95vh;
+    gap: 1.5rem;
+  }
+  h1 { font-size: clamp(1.8rem, 7.5vw, 2.6rem); }
+  .hero-lede { font-size: .95rem; max-width: 100%; }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .65rem;
+    width: 100%;
+  }
+  .primary-action,
+  .ghost-action {
+    text-align: center;
+    padding: .85rem 1rem;
+  }
+
+  /* Shrink 3D hero brick so it fits without overflow */
+  .hero-stage { flex: 0 0 auto; }
+  .brick3d {
+    width: 140px;
+    height: 70px;
+    transform: rotateX(-20deg) rotateY(30deg) scale(0.85);
+  }
+  .face.front, .face.back   { width: 140px; height: 70px; }
+  .face.right, .face.left   { width: 63px;  height: 70px; }
+  .face.top,   .face.bottom { width: 140px; height: 63px; }
+  .face.front  { transform: translateZ(31px); }
+  .face.back   { transform: rotateY(180deg) translateZ(31px); }
+  .face.right  { transform: rotateY(90deg)  translateZ(108px); }
+  .face.left   { transform: rotateY(-90deg) translateZ(31px); }
+  .face.top    { transform: rotateX(90deg)  translateZ(38px); }
+  .face.bottom { transform: rotateX(-90deg) translateZ(31px); }
+  .face.front::before { left: 24px; }
+  .face.front::after  { right: 24px; }
+  .face.front::before,
+  .face.front::after  { width: 26px; height: 26px; }
+  .stage-shadow { width: 140px; height: 22px; margin-top: 1rem; }
+
+  /* Ticker */
+  .ticker-inner { font-size: .7rem; gap: 1.25rem; }
+
+  /* Section bands */
+  .section-band { padding: 3rem 1rem; }
+  .section-copy { margin-bottom: 2rem; }
+  .section-copy h2 { font-size: clamp(1.5rem, 6.5vw, 2rem); }
+
+  /* Craft feature grid — single column */
+  .feature-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .feature { padding: 1.25rem 1rem; }
+
+  /* Photos */
+  .photo-stat-card {
+    grid-template-columns: 1fr 1fr;
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+  .stat-item strong { font-size: 1.4rem; }
+
+  /* Gallery */
+  .gallery-scene {
+    width: 240px;
+    height: 210px;
+    perspective: 600px;
+  }
+  .gallery-cube {
+    width: 180px;
+    height: 90px;
+    margin: 55px auto;
+  }
+  .gc-front, .gc-back   { width: 180px; height: 90px; }
+  .gc-right, .gc-left   { width: 75px;  height: 90px; }
+  .gc-top,   .gc-bottom { width: 180px; height: 75px; }
+  .gc-front  { transform: translateZ(37px); }
+  .gc-back   { transform: rotateY(180deg) translateZ(37px); }
+  .gc-right  { transform: rotateY(90deg)  translateZ(142px); }
+  .gc-left   { transform: rotateY(-90deg) translateZ(37px); }
+  .gc-top    { transform: rotateX(90deg)  translateZ(45px); }
+  .gc-bottom { transform: rotateX(-90deg) translateZ(45px); }
+  .gallery-hint { font-size: .7rem; }
+
+  /* Game */
+  .game-copy p { max-width: 100%; font-size: .9rem; }
+  #runnerCanvas { height: 200px; }
+  .go-inner h3 { font-size: 1.2rem; }
+  .go-inner p  { font-size: .82rem; }
+  .game-hint   { font-size: .7rem; display: none; }
+
+  /* Buy / Order form */
+  .buy { padding: 3rem 1rem; }
+  .buy-copy h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .price-box { padding: 1.25rem 1rem; }
+  .price-box strong { font-size: 2.2rem; }
+  .form-grid { grid-template-columns: 1fr; gap: .75rem; }
+
+  /* Prevent iOS auto-zoom on input focus (needs font-size ≥ 16px) */
+  .form-field input,
+  .form-field select,
+  .form-field textarea { font-size: 16px; }
+
+  /* Footer */
+  .site-footer { padding: 2rem 1rem; }
+  .footer-nav { flex-wrap: wrap; gap: .75rem; }
+  .footer-copy { font-size: .75rem; }
+}
+
+/* ── Very small phones (≤ 380px) ── */
+@media (max-width: 380px) {
+  h1 { font-size: 1.65rem; }
+  .header-cta { display: none; }
+  .gallery-scene { width: 210px; height: 185px; }
+  .gallery-cube { width: 155px; height: 78px; margin: 50px auto; }
+  .gc-front, .gc-back   { width: 155px; height: 78px; }
+  .gc-right, .gc-left   { width: 65px;  height: 78px; }
+  .gc-top,   .gc-bottom { width: 155px; height: 65px; }
+  .gc-right { transform: rotateY(90deg) translateZ(122px); }
 }
 
 /* ============================================================
@@ -798,14 +950,4 @@ h1 {
   .mobile-only { display: flex; }
 }
 
-/* ============================================================
-   RESPONSIVE â€” photos
-   ============================================================ */
-@media (max-width: 900px) {
-  .photo-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-  .photo-card--large { grid-row: auto; }
-  .photo-card--large img { min-height: 280px; }
-}
+/* photo responsive handled in main @media blocks above */
