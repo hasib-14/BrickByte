@@ -659,148 +659,22 @@ h1 {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-
-/* ── Tablet (≤ 900px) ── */
 @media (max-width: 900px) {
-  /* Header */
-  .site-header { padding: 0 1.25rem; }
-  .site-header nav { display: none; }
-
-  /* Hero */
-  .hero {
-    flex-direction: column;
-    padding: 5rem 1.5rem 3rem;
-    text-align: center;
-    gap: 2rem;
-  }
+  .hero { flex-direction: column; padding: 5rem 2rem 3rem; text-align: center; }
   .hero-lede { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .hero-stage { flex: none; }
-
-  /* Sections */
-  .section-band { padding: 4rem 1.5rem; }
-
-  /* Buy */
-  .buy { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
-
-  /* Footer */
-  .site-footer { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; gap: 1rem; }
-
-  /* Gallery */
+  .section-band { padding: 4rem 2rem; }
+  .buy { grid-template-columns: 1fr; padding: 4rem 2rem; }
+  .site-footer { flex-direction: column; align-items: flex-start; padding: 2rem; }
+  .site-header nav { display: none; }
   .gallery-scene { width: 280px; }
-
-  /* Photos grid */
-  .photo-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-  .photo-card--large { grid-row: auto; }
-  .photo-card--large img { min-height: 280px; }
 }
 
-/* ── Mobile (≤ 600px) ── */
 @media (max-width: 600px) {
-  /* Header */
-  .site-header { padding: 0 1rem; height: 56px; }
-  .brand-text { font-size: 1.1rem; }
-  .header-cta { padding: .38rem .85rem; font-size: .72rem; }
-
-  /* Hero — content only, hide the 3D brick entirely */
-  .hero {
-    padding: 5rem 1.25rem 2.5rem;
-    min-height: auto;
-    justify-content: center;
-    gap: 1rem;
-  }
-  .hero-stage { display: none; }
-  .hero-copy { flex: none; width: 100%; }
-  h1 { font-size: clamp(1.9rem, 8vw, 2.6rem); line-height: 1.2; }
-  .hero-lede { font-size: .95rem; max-width: 100%; margin-bottom: 1.5rem; }
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: .65rem;
-    width: 100%;
-  }
-  .primary-action, .ghost-action {
-    text-align: center;
-    padding: .9rem 1rem;
-    font-size: .95rem;
-  }
-
-  /* Ticker */
-  .ticker-inner { font-size: .7rem; gap: 1.25rem; }
-
-  /* Sections */
-  .section-band { padding: 3rem 1rem; }
-  .section-copy { margin-bottom: 2rem; }
-  .section-copy h2 { font-size: clamp(1.4rem, 6.5vw, 2rem); }
-
-  /* Craft */
-  .feature-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .feature { padding: 1.25rem 1rem; }
-
-  /* Photos */
-  .photo-stat-card { grid-template-columns: 1fr 1fr; padding: 1.25rem; gap: 1rem; }
-  .stat-item strong { font-size: 1.4rem; }
-
-  /* Gallery */
-  .gallery-scene { width: 240px; height: 210px; perspective: 600px; }
-  .gallery-cube { width: 180px; height: 90px; margin: 55px auto; }
-  .gc-front, .gc-back   { width: 180px; height: 90px; }
-  .gc-right, .gc-left   { width: 75px;  height: 90px; }
-  .gc-top,   .gc-bottom { width: 180px; height: 75px; }
-  .gc-front  { transform: translateZ(37px); }
-  .gc-back   { transform: rotateY(180deg) translateZ(37px); }
-  .gc-right  { transform: rotateY(90deg)  translateZ(142px); }
-  .gc-left   { transform: rotateY(-90deg) translateZ(37px); }
-  .gc-top    { transform: rotateX(90deg)  translateZ(45px); }
-  .gc-bottom { transform: rotateX(-90deg) translateZ(45px); }
-  .gallery-hint { font-size: .7rem; }
-
-  /* Game */
-  .game-copy p { max-width: 100%; font-size: .9rem; }
-  .game-panel { margin-top: 1.5rem; }
-  .game-wrap { border-radius: 8px; }
-  #runnerCanvas {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 700 / 320;
-    display: block;
-    touch-action: none;
-  }
-  .go-inner { padding: 0 1rem; }
-  .go-inner h3 { font-size: 1.1rem; }
-  .go-inner p  { font-size: .8rem; }
-  .go-inner button { padding: .65rem 1.75rem; font-size: .88rem; }
-  .game-hint { display: none; }
-
-  /* Buy */
-  .buy { padding: 3rem 1rem; }
-  .buy-copy h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
-  .price-box { padding: 1.25rem 1rem; }
-  .price-box strong { font-size: 2.2rem; }
-  .form-grid { grid-template-columns: 1fr; gap: .75rem; }
-  .form-field input,
-  .form-field select,
-  .form-field textarea { font-size: 16px; } /* stops iOS zoom on focus */
-
-  /* Footer */
-  .site-footer { padding: 2rem 1rem; }
-  .footer-nav { flex-wrap: wrap; gap: .75rem; }
-  .footer-copy { font-size: .75rem; }
-}
-
-/* ── Very small phones (≤ 380px) ── */
-@media (max-width: 380px) {
-  h1 { font-size: 1.7rem; }
-  .header-cta { display: none; }
-  .gallery-scene { width: 210px; height: 185px; }
-  .gallery-cube { width: 155px; height: 78px; margin: 50px auto; }
-  .gc-front, .gc-back   { width: 155px; height: 78px; }
-  .gc-right, .gc-left   { width: 65px;  height: 78px; }
-  .gc-top,   .gc-bottom { width: 155px; height: 65px; }
-  .gc-right { transform: rotateY(90deg) translateZ(122px); }
+  .form-grid { grid-template-columns: 1fr; }
+  .price-box { padding: 1.5rem; }
+  #runnerCanvas { height: 220px; }
 }
 
 /* ============================================================
@@ -924,4 +798,14 @@ h1 {
   .mobile-only { display: flex; }
 }
 
-/* photo responsive handled in main @media blocks above */
+/* ============================================================
+   RESPONSIVE â€” photos
+   ============================================================ */
+@media (max-width: 900px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .photo-card--large { grid-row: auto; }
+  .photo-card--large img { min-height: 280px; }
+}
