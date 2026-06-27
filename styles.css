@@ -701,86 +701,52 @@ h1 {
 /* ── Mobile (≤ 600px) ── */
 @media (max-width: 600px) {
   /* Header */
-  .site-header {
-    padding: 0 1rem;
-    height: 56px;
-  }
-  .brand-text { font-size: 1.15rem; }
+  .site-header { padding: 0 1rem; height: 56px; }
+  .brand-text { font-size: 1.1rem; }
   .header-cta { padding: .38rem .85rem; font-size: .72rem; }
 
-  /* Hero */
+  /* Hero — content only, hide the 3D brick entirely */
   .hero {
-    padding: 4.5rem 1rem 2.5rem;
-    min-height: 95vh;
-    gap: 1.5rem;
+    padding: 5rem 1.25rem 2.5rem;
+    min-height: auto;
+    justify-content: center;
+    gap: 1rem;
   }
-  h1 { font-size: clamp(1.8rem, 7.5vw, 2.6rem); }
-  .hero-lede { font-size: .95rem; max-width: 100%; }
+  .hero-stage { display: none; }
+  .hero-copy { flex: none; width: 100%; }
+  h1 { font-size: clamp(1.9rem, 8vw, 2.6rem); line-height: 1.2; }
+  .hero-lede { font-size: .95rem; max-width: 100%; margin-bottom: 1.5rem; }
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
     gap: .65rem;
     width: 100%;
   }
-  .primary-action,
-  .ghost-action {
+  .primary-action, .ghost-action {
     text-align: center;
-    padding: .85rem 1rem;
+    padding: .9rem 1rem;
+    font-size: .95rem;
   }
-
-  /* Shrink 3D hero brick so it fits without overflow */
-  .hero-stage { flex: 0 0 auto; }
-  .brick3d {
-    width: 140px;
-    height: 70px;
-    transform: rotateX(-20deg) rotateY(30deg) scale(0.85);
-  }
-  .face.front, .face.back   { width: 140px; height: 70px; }
-  .face.right, .face.left   { width: 63px;  height: 70px; }
-  .face.top,   .face.bottom { width: 140px; height: 63px; }
-  .face.front  { transform: translateZ(31px); }
-  .face.back   { transform: rotateY(180deg) translateZ(31px); }
-  .face.right  { transform: rotateY(90deg)  translateZ(108px); }
-  .face.left   { transform: rotateY(-90deg) translateZ(31px); }
-  .face.top    { transform: rotateX(90deg)  translateZ(38px); }
-  .face.bottom { transform: rotateX(-90deg) translateZ(31px); }
-  .face.front::before { left: 24px; }
-  .face.front::after  { right: 24px; }
-  .face.front::before,
-  .face.front::after  { width: 26px; height: 26px; }
-  .stage-shadow { width: 140px; height: 22px; margin-top: 1rem; }
 
   /* Ticker */
   .ticker-inner { font-size: .7rem; gap: 1.25rem; }
 
-  /* Section bands */
+  /* Sections */
   .section-band { padding: 3rem 1rem; }
   .section-copy { margin-bottom: 2rem; }
-  .section-copy h2 { font-size: clamp(1.5rem, 6.5vw, 2rem); }
+  .section-copy h2 { font-size: clamp(1.4rem, 6.5vw, 2rem); }
 
-  /* Craft feature grid — single column */
+  /* Craft */
   .feature-grid { grid-template-columns: 1fr; gap: 1rem; }
   .feature { padding: 1.25rem 1rem; }
 
   /* Photos */
-  .photo-stat-card {
-    grid-template-columns: 1fr 1fr;
-    padding: 1.25rem;
-    gap: 1rem;
-  }
+  .photo-stat-card { grid-template-columns: 1fr 1fr; padding: 1.25rem; gap: 1rem; }
   .stat-item strong { font-size: 1.4rem; }
 
   /* Gallery */
-  .gallery-scene {
-    width: 240px;
-    height: 210px;
-    perspective: 600px;
-  }
-  .gallery-cube {
-    width: 180px;
-    height: 90px;
-    margin: 55px auto;
-  }
+  .gallery-scene { width: 240px; height: 210px; perspective: 600px; }
+  .gallery-cube { width: 180px; height: 90px; margin: 55px auto; }
   .gc-front, .gc-back   { width: 180px; height: 90px; }
   .gc-right, .gc-left   { width: 75px;  height: 90px; }
   .gc-top,   .gc-bottom { width: 180px; height: 75px; }
@@ -794,22 +760,30 @@ h1 {
 
   /* Game */
   .game-copy p { max-width: 100%; font-size: .9rem; }
-  #runnerCanvas { height: 200px; }
-  .go-inner h3 { font-size: 1.2rem; }
-  .go-inner p  { font-size: .82rem; }
-  .game-hint   { font-size: .7rem; display: none; }
+  .game-panel { margin-top: 1.5rem; }
+  .game-wrap { border-radius: 8px; }
+  #runnerCanvas {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 700 / 320;
+    display: block;
+    touch-action: none;
+  }
+  .go-inner { padding: 0 1rem; }
+  .go-inner h3 { font-size: 1.1rem; }
+  .go-inner p  { font-size: .8rem; }
+  .go-inner button { padding: .65rem 1.75rem; font-size: .88rem; }
+  .game-hint { display: none; }
 
-  /* Buy / Order form */
+  /* Buy */
   .buy { padding: 3rem 1rem; }
   .buy-copy h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
   .price-box { padding: 1.25rem 1rem; }
   .price-box strong { font-size: 2.2rem; }
   .form-grid { grid-template-columns: 1fr; gap: .75rem; }
-
-  /* Prevent iOS auto-zoom on input focus (needs font-size ≥ 16px) */
   .form-field input,
   .form-field select,
-  .form-field textarea { font-size: 16px; }
+  .form-field textarea { font-size: 16px; } /* stops iOS zoom on focus */
 
   /* Footer */
   .site-footer { padding: 2rem 1rem; }
@@ -819,7 +793,7 @@ h1 {
 
 /* ── Very small phones (≤ 380px) ── */
 @media (max-width: 380px) {
-  h1 { font-size: 1.65rem; }
+  h1 { font-size: 1.7rem; }
   .header-cta { display: none; }
   .gallery-scene { width: 210px; height: 185px; }
   .gallery-cube { width: 155px; height: 78px; margin: 50px auto; }
